@@ -12,6 +12,7 @@ struct MemoryGame<CardContent> {
     var cards: Array<Card>
     
     func choose(card: Card) {
+        
         print("card choose: \(card)")
     }
     

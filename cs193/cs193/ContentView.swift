@@ -16,10 +16,12 @@ struct ContentView: View {
             ForEach(viewModel.cards) { card in
                 CardView(card: card).onTapGesture {
                     self.viewModel.choose(card: card)
+                    
                 }
             }
         }
             .padding(10)
+        .frame(minWidth: 20.0, maxWidth: 400, minHeight: 0, maxHeight: 100)
             .foregroundColor(Color.orange)
             .font(Font.largeTitle)
     }
@@ -40,27 +42,6 @@ struct CardView: View {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
