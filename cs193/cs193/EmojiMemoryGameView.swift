@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  EmojiMemoryGameView.swift
 //  cs193
 //
 //  Created by aldrin jr on 30/10/20.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct EmojiMemoryGameView: View {
     var viewModel: EmojiMemoryGame
     
     var body: some View {
@@ -21,18 +21,16 @@ struct ContentView: View {
             }
         }
             .padding(10)
-        .frame(minWidth: 20.0, maxWidth: 400, minHeight: 0, maxHeight: 100)
             .foregroundColor(Color.orange)
-            .font(Font.largeTitle)
+            .font(Font.largeTitle) // Declarative Programming
     }
 }
-
 struct CardView: View {
     var card: MemoryGame<String>.Card
     
     var body: some View {
         ZStack {
-            if card.isfaceUp {
+            if card.isfaceUp { // vars cannot be created inside viewbuilders
                 RoundedRectangle(cornerRadius: 10.0).fill(Color.white)
                 RoundedRectangle(cornerRadius: 10.0).stroke(lineWidth: 3)
                 Text(card.content)
@@ -45,6 +43,6 @@ struct CardView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(viewModel: EmojiMemoryGame())
+        EmojiMemoryGameView(viewModel: EmojiMemoryGame())
     }
 }

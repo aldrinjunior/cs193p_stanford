@@ -5,6 +5,7 @@
 //  Created by aldrin jr on 31/10/20.
 //  Copyright © 2020 aldrin jr. All rights reserved.
 //
+//  Model
 
 import Foundation
 
