@@ -22,21 +22,23 @@ struct EmojiMemoryGameView: View {
         }
             .padding(10)
             .foregroundColor(Color.orange)
-            .font(Font.largeTitle) // Declarative Programming
     }
 }
 struct CardView: View {
     var card: MemoryGame<String>.Card
     
     var body: some View {
-        ZStack {
-            if card.isfaceUp { // vars cannot be created inside viewbuilders
-                RoundedRectangle(cornerRadius: 10.0).fill(Color.white)
-                RoundedRectangle(cornerRadius: 10.0).stroke(lineWidth: 3)
-                Text(card.content)
-            } else {
-            RoundedRectangle(cornerRadius: 10.0).fill()
+        GeometryReader { geometry in
+            ZStack {
+                if card.isfaceUp { // vars cannot be created inside viewbuilders
+                    RoundedRectangle(cornerRadius: 10.0).fill(Color.white)
+                    RoundedRectangle(cornerRadius: 10.0).stroke(lineWidth: 3)
+                    Text(card.content)
+                } else {
+                    RoundedRectangle(cornerRadius: 10.0).fill()
+                }
             }
+            .font(Font.system(size: min(geometry.size.width, geometry.size.height) * 0.75))
         }
     }
 }
